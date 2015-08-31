@@ -1,0 +1,8 @@
+.drag_clone{padding:5px;border:1px solid #ccc;background:#fff}
+.drag_clone img{display:block}
+.drag_hover .add_des{background:#fcefa1}
+
+.msg_overlay{position:absolute;top:-50px;left:0;width:100%;height:50px;opacity:0.6;filter:alpha(opacity=60);background:#000;z-index:1000}
+.msg{position:absolute;top:-50px;left:0;width:100%;height:50px;z-index:2000;color:#fff;line-height:50px;}
+.msg p{margin-left:10px;_display:inline}
+.msg a{display:inline-block;margin-right:10px;color:#fff}

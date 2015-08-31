@@ -1,0 +1,11 @@
+.my_map_label{width:107px;height:142px;background:url('imgs/overly.png') no-repeat 0 0;
+position:absolute;cursor:pointer
+}
+.my_map_label img{display:block;margin:9px 8px 0;}
+.my_map_label .handle{position:absolute;bottom:25px;width:91px;height:22px;left:8px;display:none}
+.my_map_label .handle a{display:block;height:22px;width:23px;background:url('imgs/view.png') no-repeat 0 0;}
+.my_map_label .handle .see_view{}
+.my_map_label .handle .view_add{background-position:-61px -1px}
+.cur{background-position:-111px 0;}
+
+.BMap_cpyCtrl, .anchorBL{display:none}

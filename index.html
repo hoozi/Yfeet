@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" media="all" />
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/trip.js"></script>
+	<script type="text/javascript" src="js/date/WdatePicker.js"></script>
+    <title>小脚丫</title>
+
+    <!-- 2013-08-05 22:02 -->
+</head>
+<body>
+	
+    <div class="wrap">
+    	<div class="f_hd">
+    		<div class="hd_top clearfix">
+    			<a href="#" class="fl logo">LOGO</a>
+    			<div class="top_nav fr clearfix">
+    				<a href="#">登录</a>
+    				<span>&nbsp;|&nbsp;</span>
+    				<a href="#">注册</a>
+    				<span>&nbsp;|&nbsp;</span>
+    				<a href="#">帮助</a>
+    			</div>
+    		</div>
+    		<div class="nav">
+    			<li>
+    				<a href="data/data1.json">
+    					<span class="icons1"></span>景点
+    				</a>
+    			</li>
+    			<li>
+    				<a href="data/data2.json">
+    					<span class="icons2"></span>美食
+    				</a>
+    			</li>
+    			<li>
+    				<a href="data/data3.json">
+    					<span class="icons3"></span>住宿
+    				</a>
+    			</li>
+    			<li>
+    				<a href="data/data4.json">
+    					<span class="icons4"></span>购物
+    				</a>
+    			</li>
+    			<li class="ios">
+    				<a href="#"></a>
+    			</li>
+    		</div>
+    	</div>
+    	<div class="f_bd clearfix">
+    		
+    		<div class="left_panel">
+    			
+    			<div id="map_area">
+    				
+    			</div>
+    		</div>
+    		<div class="view_content">
+    			<div class="position"></div>
+    			<div class="date_view">
+    				<div class="view_hd clearfix">
+    					<span class="prev fl" onclick="$.prev()" style="display:none"></span>
+    					<div class="date clearfix fl">
+    						<span class="fl day_now" id="day_now">1</span>
+    						<div class="fl">
+    							<p class="now">
+    								第<span class="day_cn" id="day_cn">1</span>天
+    							</p>
+    							<p class="date_info" id="date_info"></p>
+    						</div>
+    						<div class="fl">
+    							<span id="calendar" onclick="WdatePicker({el:'date_info',onpicked:function(){$('#calendar').text($dp.cal.getP('d'))}})">25</span>
+    						</div>
+    					</div>
+    					<span class="next fr" onclick="$.next()" style="display:none"></span>
+    					<span class="add_date fr" onclick="$.addTime('.view_silder')"></span>
+    				</div>
+    				
+    				<div class="view_bd">
+    					<div class="view_silder clearfix">
+    						<div class="view_move">
+    							<div class="add_view cur_view"></div>
+    							<div class="add_des">
+    								<span>拖动</span>左侧景点添加，或者<span>直接点击添加</span>
+    							</div>
+    						</div>
+    					</div>
+    					
+    				</div>
+    				
+    			</div>
+    			<div class="btn">
+    				<input type="button" value="保存行程" /><input type="button" value="优化行程" class="y_btn"/>
+    			</div>
+    		</div>
+    		
+    	</div>
+    	<div class="footer">
+    		Copyright &copy; 2013 小脚丫导游  . All Rights Reserved.　　客服QQ：88888888　　电话：0898-8888 8888
+    	</div>
+    	<div class="order_view">
+			<div class="view_wrap">
+				<div class="view_w_scroll clearfix"></div>
+			</div>   			
+			<div class="btn order_btn">
+				<input type="button" value="保存行程" /><input type="button" value="优化行程" class="y_btn"/><input type="button" value="取消行程" class="c_btn"/>
+			</div>
+    	</div>
+    </div>
+    <script>
+    	
+		
+		function size() {
+			var h = $(window).height()-141-27,
+    		p_h = $(".position").outerHeight(true)+$(".view_hd").outerHeight(true),
+    		b_h = $(".btn").outerHeight(true);
+    		
+			$("#map_area").add(".view_content").add(".left_panel").add(".f_bd").css({
+				height:h
+			});
+			
+			$(".view_move").css({
+				height:$(".view_move").hasClass("view_scroll")?h-p_h-b_h:"auto"
+			});
+			
+			$(".view_box").css("height",$(".view_w_scroll").width()>$(".order_view").width()?h-b_h-15:h-b_h);
+			
+			$(".order_view").css({
+				height:h,
+				width:$(window).width()-200,
+				right:-($(window).width()-200)
+			});
+			
+			$(".vbd").css("height",$(".view_box").height()-197)
+		}
+		size();
+		$(window).resize(size);
+		
+		$.getData("data/data1.json");
+		
+		/*
+		 * {
+		 * 	"id":景点id,
+		 * "name":景点名称,
+		 * "coord":[横坐标,从坐标],
+		 * "pic":景点图片,
+		 * "url":景点详细链接,
+		 * "info":景点简介,
+		 * "start":景点开放时间,
+		 * "run":景点最优参观时间
+		 * }
+		 * */
+		
+		
+		$(".nav li").on("click", "a", function(){
+			var url = $(this).attr("href");
+			$.getData(url);
+			return false;
+		});
+		
+		$(".view_bd:eq(0)").timeSilder();
+		//console.log($.getNextTimed("2013-08-06 9:00:00", 0.7))
+		
+		$(".y_btn").click(function(){
+			if($(".view_item").size()<=0) {
+				$.msg("您还没添加任何景点");
+				return false;
+			}
+			$(".view_w_scroll").html("");
+			$(".order_view").stop().animate({
+				opacity:1,
+				right:0
+			},800)
+			$.yh();
+		});
+		$(".c_btn").click(function(){
+			$(".order_view").stop().animate({
+				opacity:0,
+				right:-($(window).width()-200)
+			},800)
+		});
+    </script>
+</body>
+</html>

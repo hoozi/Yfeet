@@ -1,0 +1,28 @@
+.reg_wrap{width:100%;height:722px;background:url('imgs/regbg.jpg') no-repeat top center}
+
+.logo_ios{position:absolute;top:30px;left:73px;}
+.logo_ios a{display:block;height:27px;}
+.logo_ios .reglogo{padding-right:10px;margin-right:10px;display:inline-block;border-right:1px dashed #79cde5}
+.logo_ios .regios{width:82px;background:url('imgs/regios.gif') no-repeat}
+
+.reg_link a,
+.reg_link{color:#fff}
+.reg_link{position:absolute;right:73px;top:30px}
+
+.reg_bd{position:absolute;left:50%;top:205px;margin:0 0 0 -166px;width:332px;}
+.reg_bd table td{padding:12px 5px;}
+.ipt1,.ipt2,.ipt3,.ipt4{height:34px;line-height:34px;}
+.ipt1,.ipt2{background:#e7f5fa;border:1px solid #c4dce6}
+.ipt1{width:260px;}
+.ipt2{width:86px;}
+.ipt3,.ipt4{width:108px;background:#307cba;border:0;margin-left:5px;font-weight:bold;color:#fff}
+.checkbox input,
+.checkbox label,
+.checkbox a{vertical-align:middle;}
+.checkbox input{width:12px;height:12px;}
+.checkbox label{color:#999}
+.checkbox a{color:#44a6cc;margin-left:20px}
+.ipt4{margin:0;background:#ffad10}
+
+
+.reg_footer{position:static}

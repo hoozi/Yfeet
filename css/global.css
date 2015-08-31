@@ -1,0 +1,17 @@
+.clear_0 {height:0; clear:both; width:100%; overflow:hidden}
+.clear_10 {height:10px; clear:both; width:100%; overflow:hidden}
+.clear_20 {height:20px; clear:both; width:100%; overflow:hidden}
+.clear_30 {height:30px; clear:both; width:100%; overflow:hidden}
+.mt20{margin-top:20px}
+.mt0{margin-top:0}
+.f12{font-size:12px}
+.f14{font-size:14px}
+.f16{font-size:16px}
+.center{text-align:center}
+.clear {clear:both}
+.clearfix:after {content:"."; display:block; clear:both; height:0; visibility:hidden;}
+.clearfix {zoom:1}
+.fl{float:left}
+.fr{float:right}
+
+.footer{width:100%;height:26px;position:absolute;bottom:0;left:0;background:#ccc;line-height:26px;color:#666;text-indent:50px}
