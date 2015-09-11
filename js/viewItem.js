@@ -4,7 +4,6 @@
  * @NAME  : viewItem
  */
 _loadScript(SCRIPT_PATH+"jquery-ui-1.10.2.min.js");
-_loadCss(CSS_PATH+"ui.css");
 (function($, window){
 	$.fn.viewItem = function(options){
 		opt = $.extend({}, {
